@@ -1,0 +1,42 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion 26
+
+    defaultConfig {
+        applicationId "com.simplelauncher"
+        minSdkVersion 16
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+
+        buildConfigField 'boolean', 'PERF_REDUCE_ANIMATION', 'false'
+        buildConfigField 'boolean', 'PERF_SIMPLE_BACKGROUND', 'false'
+        buildConfigField 'boolean', 'PERF_STRICT_REDRAW', 'true'
+        buildConfigField 'boolean', 'PERF_GLASSMORPHISM', 'true'
+        buildConfigField 'boolean', 'PERF_SPRING_ANIMATION', 'true'
+        buildConfigField 'boolean', 'PERF_FOCUS_SCALE', 'true'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "androidx.recyclerview:recyclerview:1.0.0"
+    implementation "androidx.dynamicanimation:dynamicanimation:1.0.0"
+    implementation "com.github.promeg:tinypinyin:2.0.3"
+}
